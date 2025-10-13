@@ -1,145 +1,163 @@
-.contact-form label,
-.contact-form input,
-.contact-form textarea,
-.contact-form button.btn {
-  text-align: left !important;
-  align-self: flex-start !important;
-}
 /* ========================================
-   FORMULARIO DE CONTACTO
+   VARIABLES GLOBALES
+   ======================================== */
+:root {
+  --color-primary: #7ab6ff;           /* Azul principal para acentos y enlaces */
+  --color-secondary: #23283a;         /* Fondo oscuro principal */
+  --color-text: #e3eafc;              /* Texto claro */
+  --color-background: #181c24;        /* Fondo más oscuro */
+  --color-border: #444b5a;            /* Bordes y elementos neutros */
+  --color-btn-primary: #0A66C2;       /* Botón principal (LinkedIn blue) */
+  --color-btn-hover: #084b8a;         /* Hover para botones principales */
+  --color-btn-cancel: #444b5a;        /* Botón cancelar */
+  --color-btn-cancel-hover: #23283a; /* Hover para cancelar */
+  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-size-base: 16px;
+  --border-radius: 6px;
+  --shadow-light: 0 2px 8px rgba(0,0,0,0.12);
+  --shadow-medium: 0 2px 12px rgba(0,0,0,0.18);
+  --shadow-heavy: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+/* ========================================
+   ESTILOS GENERALES DEL BODY
    ======================================== */
 
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 400px;
+/* Configuración base del documento */
+body {
+  background: linear-gradient(120deg, var(--color-background) 0%, var(--color-secondary) 100%);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
   margin: 0;
-  padding-left: 1rem;
-  align-items: flex-start; 
-  width: 100%;
-  max-width: 100%; 
-  padding: 0; 
+  padding: 0;
 }
 
-.contact-form label {
-  font-weight: 500;
-  color: #7ab6ff;
-  margin-bottom: 0.2rem;
-  text-align: left;
-  width: 100%;
-  align-self: flex-start;
-}
-
-/* Ajuste para que los inputs cubran casi todo el contenedor */
-.contact-form input,
-.contact-form textarea {
-  padding: 0.6rem 0.8rem;
-  border-radius: 6px;
-  border: 1px solid #444b5a;
-  background: #fff;
-  color: #23283a;
-  font-size: 1rem;
-  resize: none;
-  width: 100%; 
-  max-width: 100%; 
-  box-sizing: border-box; 
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #7ab6ff;
-}
-
-.contact-form button.btn {
-  width: fit-content;
-  align-self: flex-start;
-}
-
-#form-msg {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-}
 /* ========================================
-   MODAL PARA DESCARGA DE CV
+   TÍTULOS Y ENCABEZADOS
    ======================================== */
 
-/* Overlay principal del modal que cubre toda la pantalla */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.5); /* Fondo semi-transparente */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000; /* Se asegura de aparecer por encima de otros elementos */
-}
-/* Contenido del modal centrado */
-.modal-content {
-  background: #23283a;
-  color: #e3eafc;
-  padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  min-width: 300px;
+/* Título principal (nombre) */
+h1 {
+  color: var(--color-text);
+  font-size: 2.5rem;
+  margin: 0;
   text-align: center;
-  position: relative;
 }
 
-/* Título del modal */
-.modal-content h3 {
+/* Títulos de sección */
+h2 {
+  color: var(--color-primary);
+  font-size: 2rem;
   margin-top: 0;
 }
 
-/* Contenedor de botones del modal */
-.modal-actions {
-  margin-top: 1.5rem;
+/* Subtítulos dentro de secciones */
+h3 {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   ENLACES Y BOTONES
+   ======================================== */
+
+/* Enlaces base */
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Botones con estilo destacado */
+a.btn {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  margin-top: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Hover effect para botones destacados */
+a.btn:hover {
+  background: var(--color-text);
+  color: var(--color-secondary);
+}
+
+/* ========================================
+   HEADER PRINCIPAL
+   ======================================== */
+
+/* Contenedor principal del header con foto de perfil */
+.main-header {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 2rem 1rem 2rem;
+  background: var(--color-secondary);
+  box-shadow: var(--shadow-light);
+}
+
+/* Contenedor interno del header para centrar contenido */
+.main-header > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
-/* Estilo base para botones */
-.btn {
-  background: #0A66C2;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.2s;
+/* ========================================
+   IMAGEN DE PERFIL
+   ======================================== */
+
+/* Foto de perfil circular */
+.imagen-perfil {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 0px;
+  border: 3px solid var(--color-border);
 }
 
-/* Hover effect para botones principales */
-.btn:hover {
-  background: #084b8a;
+/* Subtítulo debajo del nombre */
+.subtitle {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
 
-/* Botón de cancelar */
-.btn-cancel {
-  background: #444b5a;
+/* ========================================
+   NAVEGACIÓN PRINCIPAL
+   ======================================== */
+
+/* Barra de navegación horizontal */
+.main-nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  background: var(--color-background);
+  padding: 1rem 0;
+  font-size: 1.1rem;
 }
 
-/* Hover effect para botón cancelar */
-.btn-cancel:hover {
-  background: #23283a;
+/* Enlaces de navegación */
+.main-nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
-/* Botón de cerrar (X) en la esquina superior derecha */
-.close {
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 1.5rem;
-  color: #e3eafc;
-  cursor: pointer;
+/* Hover effect para enlaces de navegación */
+.main-nav a:hover {
+  color: var(--color-text);
 }
+
 /* ========================================
    HEADER Y ENLACES SOCIALES
    ======================================== */
@@ -169,91 +187,6 @@
 }
 
 /* ========================================
-   ESTILOS GENERALES DEL BODY
-   ======================================== */
-
-/* Configuración base del documento */
-body {
-  background: linear-gradient(120deg, #181c24 0%, #23283a 100%); /* Gradiente de fondo */
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  color: #e3eafc;
-  margin: 0;
-  padding: 0;
-}
-
-/* ========================================
-   HEADER PRINCIPAL
-   ======================================== */
-
-/* Contenedor principal del header con foto de perfil */
-.main-header {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem 2rem 1rem 2rem;
-  background: #23283a;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-}
-
-/* Contenedor interno del header para centrar contenido */
-.main-header > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-/* ========================================
-   IMAGEN DE PERFIL
-   ======================================== */
-
-/* Foto de perfil circular */
-.imagen-perfil {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%; /* Hace la imagen circular */
-  object-fit: cover; /* Mantiene la proporción de la imagen */
-  object-position: center 0px; /* Posiciona la imagen en el centro */
-  border: 3px solid #444b5a; /* Borde decorativo */
-}
-
-/* Subtítulo debajo del nombre */
-.subtitle {
-  color: #7ab6ff;
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-}
-
-/* ========================================
-   NAVEGACIÓN PRINCIPAL
-   ======================================== */
-
-/* Barra de navegación horizontal */
-.main-nav {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  background: #181c24;
-  padding: 1rem 0;
-  font-size: 1.1rem;
-}
-
-/* Enlaces de navegación */
-.main-nav a {
-  color: #7ab6ff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s; /* Transición suave para el cambio de color */
-}
-
-/* Hover effect para enlaces de navegación */
-.main-nav a:hover {
-  color: #fff;
-}
-
-/* ========================================
    SECCIONES GENERALES
    ======================================== */
 
@@ -261,65 +194,10 @@ body {
 section {
   max-width: 800px;
   margin: 2rem auto;
-  background: #23283a;
+  background: var(--color-secondary);
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  box-shadow: var(--shadow-medium);
   padding: 2rem;
-}
-
-/* ========================================
-   TÍTULOS Y ENCABEZADOS
-   ======================================== */
-
-/* Título principal (nombre) */
-h1 {
-  color: #e3eafc;
-  font-size: 2.5rem;
-  margin: 0;
-  text-align: center;
-}
-
-/* Títulos de sección */
-h2 {
-  color: #7ab6ff;
-  font-size: 2rem;
-  margin-top: 0;
-}
-
-/* Subtítulos dentro de secciones */
-h3 {
-  color: #7ab6ff;
-  font-size: 1.2rem;
-}
-
-
-/* ========================================
-   ENLACES Y BOTONES
-   ======================================== */
-
-/* Enlaces base */
-a {
-  color: #7ab6ff;
-  text-decoration: underline;
-}
-
-/* Botones con estilo destacado */
-a.btn {
-  display: inline-block;
-  background: #7ab6ff;
-  color: #23283a;
-  padding: 0.5rem 1.2rem;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: 1rem;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s;
-}
-
-/* Hover effect para botones destacados */
-a.btn:hover {
-  background: #e3eafc;
-  color: #23283a;
 }
 
 /* ========================================
@@ -329,14 +207,14 @@ a.btn:hover {
 /* Grid responsivo para mostrar proyectos */
 .proyectos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Columnas que se adaptan al espacio */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
 }
 
 /* Tarjeta individual de proyecto */
 .proyecto {
-  background: #181c24;
+  background: var(--color-background);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.18);
@@ -349,7 +227,7 @@ a.btn:hover {
 /* Lista horizontal de habilidades con tags */
 .skills-list {
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
+  flex-wrap: wrap;
   gap: 1rem;
   list-style: none;
   padding: 0;
@@ -357,11 +235,11 @@ a.btn:hover {
 
 /* Etiqueta individual de habilidad */
 .skills-list li {
-  background: #181c24;
-  border-radius: 6px;
+  background: var(--color-background);
+  border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
   font-weight: 500;
-  color: #7ab6ff;
+  color: var(--color-primary);
 }
 
 /* ========================================
@@ -380,6 +258,157 @@ a.btn:hover {
 }
 
 /* ========================================
+   FORMULARIO DE CONTACTO
+   ======================================== */
+
+/* Alinea elementos a la izquierda para mejor legibilidad en formularios largos */
+.contact-form label,
+.contact-form input,
+.contact-form textarea,
+.contact-form button.btn {
+  text-align: left !important;
+  align-self: flex-start !important;
+}
+
+/* Contenedor principal del formulario: flex column para apilar elementos verticalmente */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0;
+  padding-left: 1rem;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Etiquetas del formulario */
+.contact-form label {
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 0.2rem;
+  text-align: left;
+  width: 100%;
+  align-self: flex-start;
+}
+
+/* Ajuste para que los inputs cubran casi todo el contenedor */
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-secondary);
+  font-size: 1rem;
+  resize: none;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estados de foco para inputs */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Botón del formulario */
+.contact-form button.btn {
+  width: fit-content;
+  align-self: flex-start;
+}
+
+/* Mensaje de formulario */
+#form-msg {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ========================================
+   MODAL PARA DESCARGA DE CV
+   ======================================== */
+
+/* Overlay: Cubre la pantalla completa con fondo semi-transparente para enfoque */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Contenido: Caja centrada con fondo oscuro y bordes redondeados */
+.modal-content {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-heavy);
+  min-width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+/* Título del modal */
+.modal-content h3 {
+  margin-top: 0;
+}
+
+/* Contenedor de botones del modal */
+.modal-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Estilo base para botones */
+.btn {
+  background: var(--color-btn-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+/* Hover effect para botones principales */
+.btn:hover {
+  background: var(--color-btn-hover);
+}
+
+/* Botón de cancelar */
+.btn-cancel {
+  background: var(--color-btn-cancel);
+}
+
+/* Hover effect para botón cancelar */
+.btn-cancel:hover {
+  background: var(--color-btn-cancel-hover);
+}
+
+/* Botón de cerrar (X) en la esquina superior derecha */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+/* ========================================
    FOOTER
    ======================================== */
 
@@ -387,7 +416,7 @@ a.btn:hover {
 footer {
   text-align: center;
   font-size: 14px;
-  color: #7ab6ff;
+  color: var(--color-primary);
   margin: 2rem 0 1rem 0;
 }
 
@@ -403,13 +432,13 @@ footer {
     gap: 1rem;
     text-align: center;
   }
-  
+
   /* Reduce padding en secciones para móviles */
   section {
     padding: 1rem;
-    background: #23283a;
+    background: var(--color-secondary);
   }
-  
+
   /* Grid de proyectos se convierte en una sola columna */
   .proyectos-grid {
     grid-template-columns: 1fr;
