@@ -1,33 +1,4 @@
 /*
- * Muestra el modal de descarga del CV
- */
-function confirmDownloadCV() {
-    document.getElementById('cv-modal').style.display = 'flex';
-}
-
-/*
- * Cierra el modal al hacer click en la X
- */
-document.getElementById('close-modal').onclick = function() {
-    document.getElementById('cv-modal').style.display = 'none';
-};
-
-/*
- * Cierra el modal al hacer click en "Cancelar"
- */
-document.getElementById('cancel-cv').onclick = function() {
-    document.getElementById('cv-modal').style.display = 'none';
-};
-
-/*
- * Descarga el CV y cierra el modal
- */
-document.getElementById('download-cv').onclick = function() {
-    window.location.href = 'assets/CV.FrancoR.pdf';
-    document.getElementById('cv-modal').style.display = 'none';
-};
-
-/*
  * Manejador del formulario de contacto
  * Valida los campos y muestra un mensaje según corresponda
  */
