@@ -1,0 +1,59 @@
+/* MODAL PARA DESCARGA DE CV */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-heavy);
+  min-width: 300px;
+  text-align: center;
+  position: relative;
+}
+.modal-content h3 {
+  margin-top: 0;
+}
+.modal-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.btn {
+  background: var(--color-btn-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: var(--color-btn-hover);
+}
+.btn-cancel {
+  background: var(--color-btn-cancel);
+}
+.btn-cancel:hover {
+  background: var(--color-btn-cancel-hover);
+}
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
