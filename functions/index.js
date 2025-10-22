@@ -41,15 +41,33 @@ function ocultarMensajeFormulario() {
 }
 
 /**
- * Manejador del evento de envío del formulario de contacto, validando los campos.
+ * Manejador del evento de envío del formulario de contacto, validando los campos en paralelo usando Promise.all.
  * @param {Event} e - Evento de envío de formulario.
  */
-document.getElementById('contact-form').onsubmit = function(e) {
+document.getElementById('contact-form').onsubmit = async function(e) {
+    // Obtiene los valores de los campos del formulario
     const { nombre, email, mensaje } = obtenerValoresCampos();
-    if (!camposCompletos(nombre, email, mensaje)) {
+
+    // Validaciones ejecutadas en paralelo
+    const validaciones = [
+        Promise.resolve(!!nombre),
+        Promise.resolve(!!email),
+        Promise.resolve(!!mensaje)
+    ];
+
+    try {
+        // Espera a que todas las validaciones se completen
+        const resultados = await Promise.all(validaciones);
+
+        // Verifica si todas las validaciones son verdaderas
+        if (resultados.some(resultado => !resultado)) {
+            e.preventDefault();
+            mostrarMensajeFormulario('Por favor, completa todos los campos.', 'red');
+        } else {
+            ocultarMensajeFormulario();
+        }
+    } catch (error) {
         e.preventDefault();
-        mostrarMensajeFormulario('Por favor, completa todos los campos.', 'red');
-    } else {
-        ocultarMensajeFormulario();
+        mostrarMensajeFormulario('Ocurrió un error al validar los campos.', 'red');
     }
 };
