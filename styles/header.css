@@ -15,12 +15,13 @@
   width: 100%;
 }
 .imagen-perfil {
-  width: 200px;
-  height: 200px;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 0px;
   border: 3px solid var(--color-border);
+  position: absolute;
 }
 .anim-header {
   opacity: 0;
