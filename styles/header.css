@@ -90,11 +90,14 @@
   background: var(--color-secondary);
   box-shadow: var(--shadow-light);
   position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: animHeaderFadeIn 1.2s cubic-bezier(.5,.2,.2,1) forwards;
 }
 
 .project-header .imagen-perfil {
-  width: 8rem;
-  height: 8rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 0px;
